@@ -10,12 +10,12 @@ def read_long_description():
 setup(
     name="sherlockml-updated-boltzmannclean",
     version="0.1.2",
-    url="https://github.com/tpjoe/sherlockml-updated-boltzmannclean",
+    url="https://github.com/tpjoe/sherlockml-updatedBoltzmannclean",
     author="ASI Data Science (original)",
     author_email="opensource@asidatascience.com",
     description="Fill missing values in DataFrames with Restricted Boltzmann Machines",
     license="Apache 2.0",
     long_description=read_long_description(),
-    py_modules=["boltzmannclean_updated"],
+    py_modules=["updatedBoltzmannclean"],
     install_requires=["pandas", "numpy", "scipy", "scikit-learn"],
 )
