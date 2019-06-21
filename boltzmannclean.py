@@ -4,8 +4,9 @@ import pandas as pd
 import numpy as np
 
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.preprocessing import MinMaxScaler, Imputer
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import GridSearchCV
+from sklearn.impute import SimpleImputer
 
 COLNAME_SEPARATOR = "_boltzmannclean"
 
@@ -199,7 +200,7 @@ def preprocess_numerics(dataframe, numerical_columns):
         numerics[to_impute] = np.nan
 
         # replace NaNs with column means to leave min-max scaling unaffected
-        array = Imputer().fit_transform(numerics)
+        array = SimpleImputer().fit_transform(numerics)
 
         # scale values to the range [0,1]
         scaler = MinMaxScaler().fit(array)
@@ -279,7 +280,7 @@ def train_rbm(array, tune_hyperparameters):
             "n_hidden": [rbm.n_hidden // 10, rbm.n_hidden, rbm.n_hidden * 10],
             "adagrad": [True, False],
         }
-        grid_search = GridSearchCV(rbm, param_grid=param_grid)
+        grid_search = GridSearchCV(rbm, param_grid=param_grid, cv=5)
         grid_search.fit(array)
         rbm.verbose = True
 
