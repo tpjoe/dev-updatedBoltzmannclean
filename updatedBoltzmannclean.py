@@ -187,7 +187,7 @@ def preprocess_numerics(dataframe, numerical_columns):
     """
 
     # converts to numerical values where possible, replaces with NaN if not
-    numerics = pd.DataFrame(dataframe[numerical_columns]._convert(numeric=True))
+    numerics = pd.DataFrame(dataframe.copy()[numerical_columns]._convert(numeric=True))
     # selects only columns with some numerical values
     numerics = numerics.select_dtypes([np.number])
 
@@ -195,7 +195,7 @@ def preprocess_numerics(dataframe, numerical_columns):
         to_impute = np.logical_not(np.isfinite(numerics))
 
         # avoids that annoying pandas warning
-        numerics.is_copy = False
+        # numerics.is_copy = False
         # replaces infs with nans
         numerics[to_impute] = np.nan
 
