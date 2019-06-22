@@ -8,7 +8,7 @@ def read_long_description():
 
 
 setup(
-    name="sherlockml-updated-boltzmannclean",
+    name="sherlockml-updatedBoltzmannclean",
     version="0.1.2",
     url="https://github.com/tpjoe/sherlockml-updatedBoltzmannclean",
     author="ASI Data Science (original)",
