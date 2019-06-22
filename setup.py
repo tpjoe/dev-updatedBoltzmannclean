@@ -8,9 +8,9 @@ def read_long_description():
 
 
 setup(
-    name="sherlockml-updatedBoltzmannclean",
+    name="dev-updatedBoltzmannclean",
     version="0.1.2",
-    url="https://github.com/tpjoe/sherlockml-updatedBoltzmannclean",
+    url="https://github.com/tpjoe/dev-updatedBoltzmannclean",
     author="ASI Data Science (original)",
     author_email="opensource@asidatascience.com",
     description="Fill missing values in DataFrames with Restricted Boltzmann Machines",
